@@ -9,7 +9,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
 import com.example.mobile_player_android.databinding.ActivityMainBinding
-import io.flutter.embedding.android.FlutterActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,16 +27,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener {
-//            startActivity(
-//                FlutterActivity
-//                    .withNewEngine()
-//                    .build(this)
-//            )
-            startActivity(
-                FlutterActivity.createDefaultIntent(this)
-            )
-        }
+        binding.fab.setOnClickListener {}
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

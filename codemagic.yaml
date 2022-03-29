@@ -5,8 +5,10 @@ workflows:
     scripts:
       - name: Build debug apk
         script: ./gradlew assembleDebug
+      - name: Build debug apk
+        script: ls app/build/outputs/apk/debug/*.apk
     artifacts:
-      - app/build/**/outputs/**/*.apk
+      - app/build/outputs/apk/debug/*.apk
     publishing:
       email:
         recipients:

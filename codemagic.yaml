@@ -1,7 +1,15 @@
 workflows:
-  android-app:
-    name: Android App
+  android-workflow:
+    name: Native Android
+    max_build_duration: 60
     scripts:
-      - ./gradlew assembleDebug
+      - name: Build debug apk
+        script: ./gradlew assembleDebug
+      - name: Build debug apk
+        script: ls app/build/outputs/apk/debug/*.apk
     artifacts:
-      - build/outputs/**/**/*.apk
+      - app/build/outputs/apk/debug/*.apk
+    publishing:
+      email:
+        recipients:
+          - daniel.zaczek@appwise.pl

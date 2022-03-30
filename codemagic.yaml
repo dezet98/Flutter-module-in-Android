@@ -10,18 +10,8 @@ workflows:
         CM_KEYSTORE_PATH: /tmp/keystore.keystore
       node: latest
     scripts:
-      - name: Print directions
-        script: echo $CM_BUILD_DIR ; pwd
-      - name: Set up local properties
-        script: echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
-      - name: ls CM_BUILD_DIR
-        script: ls $CM_BUILD_DIR
-      - name: ls CM_BUILD_DIR
-        script: ls 
-      - name: Set up local properties
-        script: ls "$CM_BUILD_DIR/android/"
-      - name: Set up local properties
-        script: ls $CM_BUILD_DIR
+      - name: print folders
+        script: pwd ; ls $CM_BUILD_DIR ; ls $CM_BUILD_DIR/app
       - name: Set up key.properties file for code signing
         script: |
           echo $CM_KEYSTORE | base64 --decode > $CM_KEYSTORE_PATH

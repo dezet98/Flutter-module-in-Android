@@ -22,9 +22,13 @@ workflows:
           storeFile=$CM_KEYSTORE_PATH
           EOF    
       - name: print folders AGAIN
-        script: pwd ; ls $CM_BUILD_DIR ; ls $CM_BUILD_DIR/app
+        script: pwd ; ls $CM_BUILD_DIR 
+      - name: print folders AGAIN
+        script: ls $CM_BUILD_DIR/app
       - name: print properties
         script: cat key.properties
+      - name: print properties
+        script: ls $CM_KEYSTORE_PATH
       - name: print all apk
         script: ls app/build/outputs/apk/debug/*.apk
     artifacts:

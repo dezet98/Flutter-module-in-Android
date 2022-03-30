@@ -21,8 +21,10 @@ workflows:
           keyAlias=$CM_KEY_ALIAS
           storeFile=$CM_KEYSTORE_PATH
           EOF    
-      - name: Build release apk
-        script: ./gradlew assembleRelease
+      - name: print folders AGAIN
+        script: pwd ; ls $CM_BUILD_DIR ; ls $CM_BUILD_DIR/app
+      - name: print properties
+        script: cat key.properties
       - name: print all apk
         script: ls app/build/outputs/apk/debug/*.apk
     artifacts:

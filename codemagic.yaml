@@ -1,6 +1,6 @@
 workflows:
-  android-workflow:
-    name: Native Android
+  android-release:
+    name: Native Android release
     max_build_duration: 60
     instance_type: mac_mini
     environment:
@@ -32,9 +32,25 @@ workflows:
       - name: Build release apk
         script: ./gradlew assembleRelease
       - name: print all apk
-        script: ls app/build/outputs/apk/debug/*.apk
+        script: ls app/build/outputs/apk/*/*.apk
     artifacts:
-      - app/build/outputs/apk/debug/*.apk
+      - app/build/outputs/apk/*/*.apk
+    publishing:
+      email:
+        recipients:
+          - daniel.zaczek@appwise.pl
+          
+  android-debug:
+    name: Native Android debug
+    max_build_duration: 60
+    instance_type: mac_mini
+    scripts:
+      - name: Build debug apk
+        script: ./gradlew assembleDebug
+      - name: outputs
+        script: ls app/build/outputs/apk/*/*.apk
+    artifacts:
+      - app/build/outputs/apk/*/*.apk
     publishing:
       email:
         recipients:
